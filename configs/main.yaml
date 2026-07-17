@@ -1,0 +1,65 @@
+seed: 0
+device: cuda
+precision: float32
+model:
+  input_dim: 4
+  hidden_dim: 128
+  hidden_layers: 6
+  output_dim: 7
+  activation: swish
+  learn_parameters: true
+data:
+  cohort_size: 363
+  train_size: 254
+  validation_size: 36
+  test_size: 73
+  synthetic_size: 10000
+  synthetic_train_size: 8000
+  synthetic_validation_size: 1000
+  synthetic_test_size: 1000
+  trajectory_hours: 2016
+  observations: 168
+  vascular_train: 13
+  vascular_validation: 3
+  vascular_test: 3
+training:
+  epochs: 1200
+  batch_size: 256
+  learning_rate: 0.001
+  minimum_learning_rate: 0.000001
+  optimizer: adam
+  scheduler: cosine
+  early_stopping_patience: 100
+  interior_collocation: 10000
+  boundary_collocation: 2000
+  resample_every: 50
+  seeds: [0, 1, 2, 3, 4]
+loss:
+  pde: 1.0
+  data: 10.0
+  neuroimmune: 5.0
+  boundary: 1.0
+  coupling: 1.0
+multirate:
+  fast_steps: 100
+  medium_steps: 42
+  slow_steps: 12
+  fast_seconds: 10
+  medium_hours: 4
+  slow_days: 7
+ppo:
+  total_steps: 500000
+  environments: 16
+  clip_ratio: 0.2
+  discount: 0.99
+  gae_lambda: 0.95
+  hidden_dim: 256
+  hidden_layers: 3
+  episode_seconds: 100
+  timestep_seconds: 0.01
+reward:
+  navigation: 1.0
+  therapy: 0.3
+  collision: 5.0
+  ne_penalty: 1.0
+  drug_bonus: 1.0

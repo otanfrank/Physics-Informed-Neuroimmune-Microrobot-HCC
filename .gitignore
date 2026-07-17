@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pt
+*.h5
+*.npz
+outputs/
+data/
+.venv/
+.ruff_cache/
+.mypy_cache/

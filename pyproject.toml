@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools==69.0.3", "wheel==0.42.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ni-pinn"
+version = "1.0.0"
+description = "Neuro-immune physics-informed learning and therapy-aware microrobot control"
+requires-python = ">=3.10,<3.12"
+dynamic = ["dependencies"]
+
+[project.scripts]
+ni-pinn-train = "ni_pinn.entrypoints:train_main"
+ni-pinn-evaluate = "ni_pinn.entrypoints:evaluate_main"
+ni-pinn-prepare = "ni_pinn.entrypoints:prepare_main"
+
+[tool.setuptools]
+package-dir = {"" = "code"}
+
+[tool.setuptools.packages.find]
+where = ["code"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]

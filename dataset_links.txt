@@ -1,0 +1,8 @@
+TCGA-LIHC Genomic Data Commons
+https://portal.gdc.cancer.gov/projects/TCGA-LIHC
+
+TCGA-LIHC project API
+https://api.gdc.cancer.gov/projects/TCGA-LIHC
+
+CIBERSORT and LM22
+https://cibersortx.stanford.edu/
